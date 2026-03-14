@@ -265,7 +265,7 @@ with col_main:
         # Se tem EV positivo, a ODD fica VERDE (igual em painéis profissionais)
         odd_c_class = "odd-value value-bet" if j['ev'] > 0 else "odd-value"
         badge_diamond = f'<span class="ev-badge">+{j["ev"]*100:.1f}% EV (ERRO DA CASA)</span>' if j['is_diamond'] else ''
-        quant_bar = f'<div class="quant-bar"><span class="fair-odd">Robô diz: Odd Justa {j["casa"]} = {j["odd_j_casa"]:.2f}</span> {badge_diamond}</div>' if j['ev'] > 0 else ''
+        quant_bar = f'Robô diz: Odd Justa {j["casa"]} = {j["odd_j_casa"]:.2f} {badge_diamond}' if j['ev'] > 0 else ''
 
         st.markdown(f"""
         <div class="match-card">
@@ -287,21 +287,15 @@ with col_main:
                 {render_form(j['form_fora'])}
             </div>
             
-                <div class="odds-container">
-                <div class="odd-btn">
                     Time da Casa
                     {j['odd_b_casa']}
-                </div>
-                <div class="odd-btn">
+
                     Empate
                     {j['odd_b_empate']}
-                </div>
-                <div class="odd-btn">
+
                     Time Visitante
                     {j['odd_b_fora']}
-                </div>
-            </div>
-            
+
             {quant_bar}
         </div>
         """, unsafe_allow_html=True)
