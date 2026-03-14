@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>⚽ PROBIUM AI</title>
+
+<style>
+
+body{
+
+background:#0f172a;
+color:white;
+font-family:Arial;
+text-align:center;
+
+}
+
+.card{
+
+background:#1e293b;
+padding:20px;
+margin:20px;
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>⚽ PROBIUM AI</h1>
+
+<h3>📊 Scanner de Jogos do Dia</h3>
+
+
+{% for game in games %}
+
+<div class="card">
+
+<h2>⚽ {{game.match}}</h2>
+
+<p>📊 xG Casa 🏠 {{game.expected_goals.home}}</p>
+<p>📊 xG Fora ✈️ {{game.expected_goals.away}}</p>
+
+<p>🏠 Casa {{game.probabilities.home_win.prob}}</p>
+<p>🤝 Empate {{game.probabilities.draw.prob}}</p>
+<p>✈️ Fora {{game.probabilities.away_win.prob}}</p>
+
+<p>💰 EV Casa {{game.value_bet.home_ev}}</p>
+<p>💰 EV Empate {{game.value_bet.draw_ev}}</p>
+<p>💰 EV Fora {{game.value_bet.away_ev}}</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>
