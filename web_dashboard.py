@@ -289,22 +289,22 @@ with col_main:
             
                 <div class="odds-container">
                 <div class="odd-btn">
-                    <span class="odd-label">1</span>
-                    <span class="{odd_c_class}">{j['odd_b_casa']}</span>
+                    Time da Casa
+                    {j['odd_b_casa']}
                 </div>
                 <div class="odd-btn">
-                    <span class="odd-label">X</span>
-                    <span class="odd-value">{j['odd_b_empate']}</span>
+                    Empate
+                    {j['odd_b_empate']}
                 </div>
                 <div class="odd-btn">
-                    <span class="odd-label">2</span>
-                    <span class="odd-value">{j['odd_b_fora']}</span>
+                    Time Visitante
+                    {j['odd_b_fora']}
                 </div>
             </div>
             
             {quant_bar}
         </div>
-        """, unsafe_allow_html=False)
+        """, unsafe_allow_html=True)
 
 with col_sidebar:
     st.markdown("""
