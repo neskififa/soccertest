@@ -303,7 +303,7 @@ with col_main:
             </div>
             
             {quant_bar}
-        </div> </body></html>
+        </div>
         """, unsafe_allow_html=True)
 
 with col_sidebar:
