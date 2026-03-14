@@ -203,7 +203,7 @@ class QuantEngine:
                     
                     jogos_analisados.append({
                         "id": event['id'], "liga": liga_nome, "casa": nome_casa, "fora": nome_fora,
-                        "data": data_jogo[:10], "form_casa": form_casa, "form_fora": form_fora,
+                        "data": data_jogo[:25], "form_casa": form_casa, "form_fora": form_fora,
                         "odd_b_casa": odd_bookie_casa, "odd_b_empate": odd_bookie_empate, "odd_b_fora": odd_bookie_fora,
                         "odd_j_casa": odd_justa_casa, "ev": ev_casa, "is_diamond": is_diamond
                     })
@@ -311,7 +311,7 @@ with col_sidebar:
     
     # Exibir as melhores oportunidades isoladas
     if diamonds:
-        for d in diamonds[:8]: # Mostra os 8 melhores
+        for d in diamonds[:10]: # Mostra os 10 melhores
             st.markdown(f"""
             <div class="robot-pick">
                 <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 BET DETECTADA</div>
