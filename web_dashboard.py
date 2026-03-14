@@ -287,7 +287,7 @@ with col_main:
                 {render_form(j['form_fora'])}
             </div>
             
-            <div class="odds-container">
+                   <html><body>    <div class="odds-container">
                 <div class="odd-btn">
                     <span class="odd-label">1</span>
                     <span class="{odd_c_class}">{j['odd_b_casa']}</span>
