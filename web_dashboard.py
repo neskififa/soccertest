@@ -243,7 +243,7 @@ col_main, col_sidebar = st.columns([7, 3])
 
 with col_main:
     # Filtros Estilo Casa de Apostas
-    st.markdown('<div style="display:flex; gap:15px; margin-bottom: 20px;"><button style="background:var(--red-superbet); color:white; border:none; padding:8px 15px; border-radius:20px; font-weight:bold;">🔥 Em Destaque</button><button style="background:#222; color:white; border:1px solid #444; padding:8px 15px; border-radius:20px;">⚽ Premier League</button><button style="background:#222; color:white; border:1px solid #444; padding:8px 15px; border-radius:20px;">💎 Somente Value Bets</button></div>', unsafe_allow_html=True)
+    st.markdown('<div style="display:flex; gap:15px; margin-bottom: 20px;"><button style="background:var(--red-superbet); color:white; border:none; padding:8px 15px; border-radius:20px; font-weight:bold;">🔥 Em Destaque</button></div>', unsafe_allow_html=True)
     
     if st.button("🔄 Atualizar Análises da Web (Scraping)"):
         engine = QuantEngine()
