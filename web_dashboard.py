@@ -11,7 +11,7 @@ import json
 # CONFIGURAÇÃO DA PÁGINA (ESTILO PORTAL WEB)
 # ==========================================
 st.set_page_config(
-    page_title="PROBIUM | Inteligência Esportiva",
+    page_title="ScoutX | Inteligência Esportiva",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed" # Esconde a barra nativa para parecer um site real
@@ -93,7 +93,7 @@ st.markdown("""
 </style>
 
 <div class="top-nav">
-    <div class="logo-title">⚡ PROBIUM <span>QUANT</span></div>
+    <div class="logo-title">⚡ ScoutX <span>QUÂNTICO</span></div>
     <div style="font-size: 14px; font-weight: bold; color: #aaa;">O Motor Matemático que Vence as Casas</div>
 </div>
 """, unsafe_allow_html=True)
@@ -306,7 +306,7 @@ with col_sidebar:
         <div class="robot-title">
             🤖 SINAIS DO ROBÔ
         </div>
-        <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">O Motor Probium varreu <strong>centenas de jogos</strong> usando algoritmos de Distribuição de Poisson. Estas são as oportunidades onde as casas erraram feio:</p>
+        <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">O Motor ScoutX varreu <strong>centenas de jogos</strong> usando algoritmos. Estas são as oportunidades que estão no momento:</p>
     """, unsafe_allow_html=True)
     
     # Exibir as melhores oportunidades isoladas
@@ -314,7 +314,7 @@ with col_sidebar:
         for d in diamonds[:4]: # Mostra as 4 melhores
             st.markdown(f"""
             <div class="robot-pick">
-                <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 VALUE BET DETECTADA</div>
+                <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 BET DETECTADA</div>
                 <div style="font-weight: bold; font-size: 14px; color: white;">{d['casa']} vence</div>
                 <div style="font-size: 12px; color: #aaa; margin-top: 5px;">Jogo: {d['casa']} x {d['fora']}</div>
                 <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
@@ -327,7 +327,7 @@ with col_sidebar:
         st.markdown("""
         <div class="robot-pick" style="border-left-color: #555;">
             <div style="color: #aaa; text-align: center; padding: 20px 0;">
-                Nenhum erro de precisão grave detectado nas casas de apostas neste momento.<br><br>Volte mais tarde ou force a varredura.
+                Nenhuma probabilidade detectada neste momento.<br><br>Volte mais tarde ou force a varredura.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -337,5 +337,4 @@ with col_sidebar:
     # Painel Administrativo Oculto
     with st.expander("⚙️ Log de Scraper (Para Admin)"):
         st.write("Última varredura:", datetime.now().strftime("%H:%M:%S"))
-        st.write("Fórmula utilizada: Expectativa de Gols Cruzada (Poisson)")
         st.write("Rotas raspadas: ESPN JSON endpoints.")
