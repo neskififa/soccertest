@@ -115,7 +115,7 @@ class QuantEngine:
         Baseado no poder de ataque e defesa.
         """
         # Médias da Liga (Simuladas para o exemplo, mas raspadas na versão full)
-        media_gols_liga = 1.45 
+        media_gols_liga = 1.30 
         
         # Força de Ataque (Time / Media Liga)
         forca_ataque_casa = (gf_casa / media_gols_liga) if media_gols_liga else 1.0
