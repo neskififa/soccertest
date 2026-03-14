@@ -115,7 +115,7 @@ class QuantEngine:
         Baseado no poder de ataque e defesa.
         """
         # Médias da Liga (Simuladas para o exemplo, mas raspadas na versão full)
-        media_gols_liga = 1.30 
+        media_gols_liga = 2.90 
         
         # Força de Ataque (Time / Media Liga)
         forca_ataque_casa = (gf_casa / media_gols_liga) if media_gols_liga else 1.0
@@ -251,7 +251,7 @@ with col_main:
         st.rerun()
 
     # Construção dos Cards de Jogos
-    for j in jogos[:15]: # Mostra os top 15
+    for j in jogos[:25]: # Mostra os top 25
         
         # Helper para desenhar as bolinhas do form
         def render_form(form_list):
@@ -311,7 +311,7 @@ with col_sidebar:
     
     # Exibir as melhores oportunidades isoladas
     if diamonds:
-        for d in diamonds[:4]: # Mostra as 4 melhores
+        for d in diamonds[:8]: # Mostra os 8 melhores
             st.markdown(f"""
             <div class="robot-pick">
                 <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 BET DETECTADA</div>
