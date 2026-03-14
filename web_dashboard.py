@@ -274,7 +274,7 @@ with col_main:
                 <span>📅 {j['data']}</span>
             </div>
             
-            <div class="team-row">
+           <html><body><h1> <div class="team-row">
                 <div style="display:flex; align-items:center; gap:10px;">
                     ⚽ {j['casa']}
                 </div>
@@ -300,7 +300,7 @@ with col_main:
                     <span class="odd-label">2</span>
                     <span class="odd-value">{j['odd_b_fora']}</span>
                 </div>
-            </div>
+            </div></body></html>
             
             {quant_bar}
         </div>
