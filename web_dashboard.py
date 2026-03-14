@@ -300,10 +300,10 @@ with col_main:
                     <span class="odd-label">2</span>
                     <span class="odd-value">{j['odd_b_fora']}</span>
                 </div>
-            </div></body></html>
+            </div>
             
             {quant_bar}
-        </div>
+        </div> </body></html>
         """, unsafe_allow_html=True)
 
 with col_sidebar:
