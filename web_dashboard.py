@@ -287,7 +287,7 @@ with col_main:
                 {render_form(j['form_fora'])}
             </div>
             
-                   <html><body>    <div class="odds-container">
+                <div class="odds-container">
                 <div class="odd-btn">
                     <span class="odd-label">1</span>
                     <span class="{odd_c_class}">{j['odd_b_casa']}</span>
@@ -304,7 +304,7 @@ with col_main:
             
             {quant_bar}
         </div>
-        """, unsafe_allow_html=True)
+        """, unsafe_allow_html=False)
 
 with col_sidebar:
     st.markdown("""
