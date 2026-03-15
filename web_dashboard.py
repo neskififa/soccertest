@@ -287,15 +287,10 @@ with col_main:
                 {render_form(j['form_fora'])}
             </div>
             
-                    🏠 Time da Casa
-                    {j['odd_b_casa']}
-
-                    🤝 Empate
-                    {j['odd_b_empate']}
-
-                    ✈️ Time Visitante
-                    {j['odd_b_fora']}
-
+                    🏠 Time da Casa: {j['odd_b_casa']}
+                    🤝 Empate: {j['odd_b_empate']}
+                    ✈️ Time Visitante: {j['odd_b_fora']}
+                    
             {quant_bar}
         </div>
         """, unsafe_allow_html=True)
