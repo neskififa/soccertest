@@ -152,7 +152,7 @@ class QuantEngine:
         """
         Scraping WEB real nas rotas abertas da ESPN (Agenda, Odds, Formato).
         """
-        ligas = {'eng.1': 'Premier League', 'esp.1': 'La Liga', 'ita.1': 'Serie A', 'bra.1': 'Brasileirão', 'ger.1': 'Bundesliga', 'uefa.champions': 'Liga dos Campeões', 'bra.2': 'Série B'}
+        ligas = {'eng.1': 'Premier League', 'esp.1': 'La Liga', 'ita.1': 'Serie A', 'bra.1': 'Brasileirão', 'ger.1': 'Bundesliga', 'bra.2': 'Série B'}
         jogos_analisados =[]
         
         for liga_code, liga_nome in ligas.items():
