@@ -1059,50 +1059,6 @@ elif page == "🔍 Oportunidades":
                         <div style="font-size: 11px; color: #64748b; margin-top: 4px;">Confiança do Modelo</div>
                     </div>
                     """, unsafe_allow_html=True)
-
-                <!-- THE CALL -->
-                <div class="{box_class}">
-                    <div>
-                        <div class="call-title">VANTAGEM ESTATÍSTICA</div>
-                        <div style="font-size: 1.5rem; color: #10B981; font-weight: 900;">+{(row['ev']*100):.1f}% EV</div>
-                with col2:
-                    st.markdown(f"""
-                    <div class="bet-card" style="text-align: center;">
-                        <div class="odds-label">ODD</div>
-                        <div class="odds-display">{row['odd']}</div>
-                        </div>
-                    </div>
-
-                    """, unsafe_allow_html=True)
-                
-                with col3:
-                    ev_color = "ev-positive" if row['ev'] > 0 else "ev-negative"
-                    st.markdown(f"""
-                    <div class="bet-card" style="text-align: center;">
-                        <div class="odds-label">EXPECTED VALUE</div>
-                        <div class="{ev_color}">{row['ev']*100:+.2f}%</div>
-                        <div style="font-size: 12px; color: #64748b; margin-top: 8px;">
-                            Edge identificado
-                        </div>
-                    </div>
-                    <div class="kelly-box">
-                        <div class="kelly-title">STAKE DE SEGURANÇA (KELLY)</div>
-                        <div class="kelly-value">{row.get('kelly_stake', 1.0):.1f}% <span style="font-size:0.7rem; color:#94A3B8;">Banca</span></div>
-                    """, unsafe_allow_html=True)
-                
-                with col4:
-                    st.markdown(f"""
-                    <div class="bet-card" style="text-align: center;">
-                        <div class="odds-label">KELLY CRITERION</div>
-                        <div style="font-size: 32px; font-weight: 900; color: #ffb700; font-family: 'JetBrains Mono', monospace;">
-                            {row['kelly']}%
-                        </div>
-                        <div class="kelly-box" style="margin-top: 12px; padding: 8px;">
-                            <span style="font-size: 11px; color: #64748b;">Stake Rec.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             """, unsafe_allow_html=True)
             
             st.plotly_chart(plotar_dropping_odds(row.get('odd_history', '[]')), use_container_width=True)
