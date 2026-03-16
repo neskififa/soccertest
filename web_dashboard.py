@@ -1085,7 +1085,7 @@ elif page == "🔍 Oportunidades":
                     st.markdown(f"""
                     <div class="bet-card" style="text-align: center;">
                         <div class="odds-label">EXPECTED VALUE</div>
-                        <div class="{ev_color}">{row['ev']*100:+.2f}%</div>
+                        <div class="{ev_color}">{row['ev']*100:+.if}%</div>
                         <div style="font-size: 12px; color: #64748b; margin-top: 8px;">
                             Edge identificado
                         </div>
