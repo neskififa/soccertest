@@ -254,7 +254,13 @@ with col_main:
     for j in jogos[:25]: # Mostra os top 25
         
         # Helper para desenhar as bolinhas do form
-
+        def render_form(form_list):
+            html = '<div class="form-guide">'
+            for res in form_list:
+                classe = "form-w" if res == 'W' else "form-d" if res == 'D' else "form-l"
+                html += f'<span class="form-dot {classe}">{res}</span>'
+            html += '</div>'
+            return html
 
         # Se tem EV positivo, a ODD fica VERDE (igual em painéis profissionais)
         odd_c_class = "odd-value value-bet" if j['ev'] > 0 else "odd-value"
