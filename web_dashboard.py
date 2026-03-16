@@ -1071,7 +1071,7 @@ elif page == "🔍 Oportunidades":
                         <div class="odds-label">ODD</div>
                         <div class="odds-display">{row['odd']}</div>
                         <div style="font-size: 12px; color: #64748b; margin-top: 8px;">
-                            Prob: {row['prob']*100:.1f}%
+                            Prob: {row['prob']*100:.if}%
                         </div>
                     </div>
                     <div>
