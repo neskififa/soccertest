@@ -1077,7 +1077,7 @@ elif page == "🔍 Oportunidades":
                     <div>
                         <div class="call-title">A OPERAÇÃO</div>
                         <div class="call-market">{row['mercado']}</div>
-                        <div style="color: #CBD5E1; font-size: 0.9rem;">{row['selecao']} @ {row['odd']:.2f}</div>
+                        <div style="color: #CBD5E1; font-size: 0.9rem;">{row['selecao']} @ {row['odd']:.if}</div>
                     """, unsafe_allow_html=True)
                 
                 with col3:
