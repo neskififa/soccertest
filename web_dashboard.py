@@ -179,9 +179,9 @@ class QuantEngine:
                     
                     # 2. Scraping das Odds Oficiais da Casa (Bookie)
                     odds = comp.get('odds',[])
-                    odd_bookie_casa = round(random.uniform(1.5, 3.5), 2)
-                    odd_bookie_empate = round(random.uniform(3.0, 4.5), 2)
-                    odd_bookie_fora = round(random.uniform(2.5, 5.5), 2)
+                    odd_bookie_casa = round(random.uniform(1.5, 5.5), 2)
+                    odd_bookie_empate = round(random.uniform(2.0, 4.5), 2)
+                    odd_bookie_fora = round(random.uniform(1.5, 5.5), 2)
                     
                     # Se tiver dados da ESPN reais, extraímos:
                     if odds and 'details' in odds[0] and odds[0]['details'] != 'EVEN':
