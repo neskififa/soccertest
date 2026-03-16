@@ -203,7 +203,7 @@ class QuantEngine:
                     
                     jogos_analisados.append({
                         "id": event['id'], "liga": liga_nome, "casa": nome_casa, "fora": nome_fora,
-                        "data": data_jogo[:25], "form_casa": form_casa, "form_fora": form_fora,
+                        "data": data_jogo[:30], "form_casa": form_casa, "form_fora": form_fora,
                         "odd_b_casa": odd_bookie_casa, "odd_b_empate": odd_bookie_empate, "odd_b_fora": odd_bookie_fora,
                         "odd_j_casa": odd_justa_casa, "ev": ev_casa, "is_diamond": is_diamond
                     })
@@ -254,13 +254,7 @@ with col_main:
     for j in jogos[:25]: # Mostra os top 25
         
         # Helper para desenhar as bolinhas do form
-        def render_form(form_list):
-            html = '<div class="form-guide">'
-            for res in form_list:
-                classe = "form-w" if res == 'W' else "form-d" if res == 'D' else "form-l"
-                html += f'<span class="form-dot {classe}">{res}</span>'
-            html += '</div>'
-            return html
+
 
         # Se tem EV positivo, a ODD fica VERDE (igual em painéis profissionais)
         odd_c_class = "odd-value value-bet" if j['ev'] > 0 else "odd-value"
