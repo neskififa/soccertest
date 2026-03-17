@@ -23,8 +23,6 @@ st.set_page_config(
     page_title="PROBIUM | Inteligência Esportiva",
     page_icon="⚡",
     layout="wide",
-    initial_sidebar_state="expanded"
-    initial_sidebar_state="collapsed" # Esconde a barra nativa para parecer um site real
 )
 
 # ==========================================
