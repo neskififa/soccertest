@@ -514,7 +514,6 @@ def init_db():
     conn.close()
 
 init_db()
-<div class="top-nav">
     <div class="logo-title"> PROBIUM <span>QUANT</span></div>
     <div style="font-size: 14px; font-weight: bold; color: #aaa;">O Motor Matemático que Vence as Casas</div>
 </div>
