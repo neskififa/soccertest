@@ -11,7 +11,7 @@ import json
 # CONFIGURAÇÃO DA PÁGINA (ESTILO PORTAL WEB)
 # ==========================================
 st.set_page_config(
-    page_title="PROBIUM | Inteligência Esportiva",
+    page_title="ScoutX | Inteligência Esportiva",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed" # Esconde a barra nativa para parecer um site real
@@ -93,7 +93,7 @@ st.markdown("""
 </style>
 
 <div class="top-nav">
-    <div class="logo-title">⚡ PROBIUM <span>QUANT</span></div>
+    <div class="logo-title">⚡ ScoutX <span>QUÂNTICO</span></div>
     <div style="font-size: 14px; font-weight: bold; color: #aaa;">O Motor Matemático que Vence as Casas</div>
 </div>
 """, unsafe_allow_html=True)
@@ -115,7 +115,7 @@ class QuantEngine:
         Baseado no poder de ataque e defesa.
         """
         # Médias da Liga (Simuladas para o exemplo, mas raspadas na versão full)
-        media_gols_liga = 1.45 
+        media_gols_liga = 2.90 
         
         # Força de Ataque (Time / Media Liga)
         forca_ataque_casa = (gf_casa / media_gols_liga) if media_gols_liga else 1.0
@@ -152,7 +152,7 @@ class QuantEngine:
         """
         Scraping WEB real nas rotas abertas da ESPN (Agenda, Odds, Formato).
         """
-        ligas = {'eng.1': 'Premier League', 'esp.1': 'La Liga', 'ita.1': 'Serie A', 'bra.1': 'Brasileirão Série A'}
+        ligas = {'eng.1': 'Premier League', 'esp.1': 'La Liga', 'ita.1': 'Serie A', 'fra.1': 'Liga da França', 'por.1': 'Liga de Portugal', 'chn.1': 'Campeonato da China', 'uefa.europa': 'Europa League', 'bra.1': 'Brasileirão', 'ger.1': 'Bundesliga', 'bra.2': 'Série B'}
         jogos_analisados =[]
         
         for liga_code, liga_nome in ligas.items():
@@ -203,7 +203,7 @@ class QuantEngine:
                     
                     jogos_analisados.append({
                         "id": event['id'], "liga": liga_nome, "casa": nome_casa, "fora": nome_fora,
-                        "data": data_jogo[:10], "form_casa": form_casa, "form_fora": form_fora,
+                        "data": data_jogo[:25], "form_casa": form_casa, "form_fora": form_fora,
                         "odd_b_casa": odd_bookie_casa, "odd_b_empate": odd_bookie_empate, "odd_b_fora": odd_bookie_fora,
                         "odd_j_casa": odd_justa_casa, "ev": ev_casa, "is_diamond": is_diamond
                     })
@@ -243,7 +243,7 @@ col_main, col_sidebar = st.columns([7, 3])
 
 with col_main:
     # Filtros Estilo Casa de Apostas
-    st.markdown('<div style="display:flex; gap:15px; margin-bottom: 20px;"><button style="background:var(--red-superbet); color:white; border:none; padding:8px 15px; border-radius:20px; font-weight:bold;">🔥 Em Destaque</button><button style="background:#222; color:white; border:1px solid #444; padding:8px 15px; border-radius:20px;">⚽ Premier League</button><button style="background:#222; color:white; border:1px solid #444; padding:8px 15px; border-radius:20px;">💎 Somente Value Bets</button></div>', unsafe_allow_html=True)
+    st.markdown('<div style="display:flex; gap:15px; margin-bottom: 20px;"><button style="background:var(--red-superbet); color:white; border:none; padding:8px 15px; border-radius:20px; font-weight:bold;">🔥 Em Destaque</button></div>', unsafe_allow_html=True)
     
     if st.button("🔄 Atualizar Análises da Web (Scraping)"):
         engine = QuantEngine()
@@ -251,7 +251,7 @@ with col_main:
         st.rerun()
 
     # Construção dos Cards de Jogos
-    for j in jogos[:15]: # Mostra os top 15
+    for j in jogos[:25]: # Mostra os top 25
         
         # Helper para desenhar as bolinhas do form
         def render_form(form_list):
@@ -264,8 +264,8 @@ with col_main:
 
         # Se tem EV positivo, a ODD fica VERDE (igual em painéis profissionais)
         odd_c_class = "odd-value value-bet" if j['ev'] > 0 else "odd-value"
-        badge_diamond = f'<span class="ev-badge">+{j["ev"]*100:.1f}% EV (ERRO DA CASA)</span>' if j['is_diamond'] else ''
-        quant_bar = f'<div class="quant-bar"><span class="fair-odd">Robô diz: Odd Justa {j["casa"]} = {j["odd_j_casa"]:.2f}</span> {badge_diamond}</div>' if j['ev'] > 0 else ''
+        badge_diamond = f'+{j["ev"]*100:.1f}% EV (ERRO DA CASA)' if j['is_diamond'] else ''
+        quant_bar = f' 🤖 Robô diz: Odd Justa {j["casa"]} = {j["odd_j_casa"]:.2f} 🔥 {badge_diamond}' if j['ev'] > 0 else ''
 
         st.markdown(f"""
         <div class="match-card">
@@ -274,7 +274,7 @@ with col_main:
                 <span>📅 {j['data']}</span>
             </div>
             
-            <div class="team-row">
+           <html><body><h1> <div class="team-row">
                 <div style="display:flex; align-items:center; gap:10px;">
                     ⚽ {j['casa']}
                 </div>
@@ -287,21 +287,10 @@ with col_main:
                 {render_form(j['form_fora'])}
             </div>
             
-            <div class="odds-container">
-                <div class="odd-btn">
-                    <span class="odd-label">1</span>
-                    <span class="{odd_c_class}">{j['odd_b_casa']}</span>
-                </div>
-                <div class="odd-btn">
-                    <span class="odd-label">X</span>
-                    <span class="odd-value">{j['odd_b_empate']}</span>
-                </div>
-                <div class="odd-btn">
-                    <span class="odd-label">2</span>
-                    <span class="odd-value">{j['odd_b_fora']}</span>
-                </div>
-            </div>
-            
+                    🏠 Time da Casa: {j['odd_b_casa']}
+                    🤝 Empate: {j['odd_b_empate']}
+                    ✈️ Time Visitante: {j['odd_b_fora']}
+                    
             {quant_bar}
         </div>
         """, unsafe_allow_html=True)
@@ -312,15 +301,15 @@ with col_sidebar:
         <div class="robot-title">
             🤖 SINAIS DO ROBÔ
         </div>
-        <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">O Motor Probium varreu <strong>centenas de jogos</strong> usando algoritmos de Distribuição de Poisson. Estas são as oportunidades onde as casas erraram feio:</p>
+        <p style="font-size: 13px; color: #aaa; margin-bottom: 20px;">O Motor ScoutX varreu <strong>centenas de jogos</strong> usando algoritmos. Estas são as oportunidades que estão no momento:</p>
     """, unsafe_allow_html=True)
     
     # Exibir as melhores oportunidades isoladas
     if diamonds:
-        for d in diamonds[:4]: # Mostra as 4 melhores
+        for d in diamonds[:10]: # Mostra os 10 melhores
             st.markdown(f"""
             <div class="robot-pick">
-                <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 VALUE BET DETECTADA</div>
+                <div style="font-size: 11px; color: #ffab00; font-weight: bold; margin-bottom: 5px;">🔥 BET DETECTADA</div>
                 <div style="font-weight: bold; font-size: 14px; color: white;">{d['casa']} vence</div>
                 <div style="font-size: 12px; color: #aaa; margin-top: 5px;">Jogo: {d['casa']} x {d['fora']}</div>
                 <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
@@ -333,7 +322,7 @@ with col_sidebar:
         st.markdown("""
         <div class="robot-pick" style="border-left-color: #555;">
             <div style="color: #aaa; text-align: center; padding: 20px 0;">
-                Nenhum erro de precisão grave detectado nas casas de apostas neste momento.<br><br>Volte mais tarde ou force a varredura.
+                Nenhuma probabilidade detectada neste momento.<br><br>Volte mais tarde ou force a varredura.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -343,5 +332,4 @@ with col_sidebar:
     # Painel Administrativo Oculto
     with st.expander("⚙️ Log de Scraper (Para Admin)"):
         st.write("Última varredura:", datetime.now().strftime("%H:%M:%S"))
-        st.write("Fórmula utilizada: Expectativa de Gols Cruzada (Poisson)")
         st.write("Rotas raspadas: ESPN JSON endpoints.")
